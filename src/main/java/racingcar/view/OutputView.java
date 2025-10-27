@@ -31,7 +31,6 @@ public class OutputView {
     }
 
     public static void printWinners(List<String> winners) {
-        System.out.println();
         System.out.println(formatWinners(winners));
     }
 
