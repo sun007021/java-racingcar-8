@@ -65,8 +65,8 @@ class RacingGameTest {
 
         // 특정 자동차만 전진시키기 (테스트를 위해 직접 조작)
         List<Car> cars = game.getCars();
-        cars.get(0).move(); // pobi 전진
-        cars.get(0).move(); // pobi 전진
+        cars.get(0).moveForward(); // pobi 전진
+        cars.get(0).moveForward(); // pobi 전진
 
         // when
         List<String> winners = game.getWinners();
@@ -84,11 +84,11 @@ class RacingGameTest {
 
         // 두 자동차를 같은 거리로 전진시키기
         List<Car> cars = game.getCars();
-        cars.get(0).move(); // pobi
-        cars.get(0).move(); // pobi
-        cars.get(1).move(); // woni
-        cars.get(1).move(); // woni
-        cars.get(2).move(); // jun
+        cars.get(0).moveForward(); // pobi
+        cars.get(0).moveForward(); // pobi
+        cars.get(1).moveForward(); // woni
+        cars.get(1).moveForward(); // woni
+        cars.get(2).moveForward(); // jun
 
         // when
         List<String> winners = game.getWinners();
@@ -107,8 +107,8 @@ class RacingGameTest {
         // 모든 자동차를 같은 거리로
         List<Car> cars = game.getCars();
         cars.forEach(car -> {
-            car.move();
-            car.move();
+            car.moveForward();
+            car.moveForward();
         });
 
         // when

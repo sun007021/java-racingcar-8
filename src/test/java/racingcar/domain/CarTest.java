@@ -45,7 +45,7 @@ class CarTest {
         int initialPosition = car.getPosition();
 
         // when
-        car.move();
+        car.moveForward();
 
         // then
         assertThat(car.getPosition()).isEqualTo(initialPosition + 1);
@@ -58,9 +58,9 @@ class CarTest {
         Car car = new Car("pobi");
 
         // when
-        car.move();
-        car.move();
-        car.move();
+        car.moveForward();
+        car.moveForward();
+        car.moveForward();
 
         // then
         assertThat(car.getPosition()).isEqualTo(3);
@@ -105,9 +105,9 @@ class CarTest {
         Car car1 = new Car("pobi");
         Car car2 = new Car("woni");
 
-        car1.move();
-        car1.move();
-        car2.move();
+        car1.moveForward();
+        car1.moveForward();
+        car2.moveForward();
 
         // when & then
         assertThat(car1.getPosition()).isGreaterThan(car2.getPosition());
