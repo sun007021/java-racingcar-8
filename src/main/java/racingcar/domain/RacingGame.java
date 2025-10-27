@@ -1,10 +1,16 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class RacingGame {
+    private static final int RANDOM_NUMBER_MIN = 0;
+    private static final int RANDOM_NUMBER_MAX = 9;
+    private static final int MOVE_FORWARD_THRESHOLD = 4;
+
     private final List<Car> cars;
 
     public RacingGame(List<String> carNames) {
@@ -16,7 +22,7 @@ public class RacingGame {
     public List<Car> getCars() {
         return new ArrayList<>(cars);
     }
-
+    
     public void playRound() {
         for (Car car : cars) {
             tryMove(car);
@@ -24,7 +30,10 @@ public class RacingGame {
     }
 
     private void tryMove(Car car) {
-        // TODO: 무작위 값 생성 및 이동 판단 로직 구현 예정
+        int randomNumber = Randoms.pickNumberInRange(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX);
+        if (randomNumber >= MOVE_FORWARD_THRESHOLD) {
+            car.moveForward();
+        }
     }
 
     public List<String> getWinners() {
