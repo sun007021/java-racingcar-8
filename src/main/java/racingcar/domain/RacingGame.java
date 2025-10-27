@@ -12,17 +12,25 @@ public class RacingGame {
     private static final int MOVE_FORWARD_THRESHOLD = 4;
 
     private final List<Car> cars;
+    private final int rounds;
 
-    public RacingGame(List<String> carNames) {
+    public RacingGame(List<String> carNames, int rounds) {
         this.cars = carNames.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
+        this.rounds = rounds;
     }
 
     public List<Car> getCars() {
         return new ArrayList<>(cars);
     }
-    
+
+    public void play() {
+        for (int i = 0; i < rounds; i++) {
+            playRound();
+        }
+    }
+
     public void playRound() {
         for (Car car : cars) {
             tryMove(car);

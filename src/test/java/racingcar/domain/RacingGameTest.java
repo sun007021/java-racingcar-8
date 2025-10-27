@@ -17,7 +17,7 @@ class RacingGameTest {
         List<String> carNames = Arrays.asList("pobi", "woni", "jun");
 
         // when
-        RacingGame game = new RacingGame(carNames);
+        RacingGame game = new RacingGame(carNames, 5);
 
         // then
         assertThat(game.getCars()).hasSize(3);
@@ -28,7 +28,7 @@ class RacingGameTest {
     void playOneRound() {
         // given
         List<String> carNames = Arrays.asList("pobi", "woni");
-        RacingGame game = new RacingGame(carNames);
+        RacingGame game = new RacingGame(carNames, 1);
 
         // when
         game.playRound();
@@ -43,13 +43,11 @@ class RacingGameTest {
     void playMultipleRounds() {
         // given
         List<String> carNames = Arrays.asList("pobi", "woni", "jun");
-        RacingGame game = new RacingGame(carNames);
         int rounds = 5;
+        RacingGame game = new RacingGame(carNames, rounds);
 
         // when
-        for (int i = 0; i < rounds; i++) {
-            game.playRound();
-        }
+        game.play();
 
         // then
         List<Car> cars = game.getCars();
@@ -61,7 +59,7 @@ class RacingGameTest {
     void findSingleWinner() {
         // given
         List<String> carNames = Arrays.asList("pobi", "woni", "jun");
-        RacingGame game = new RacingGame(carNames);
+        RacingGame game = new RacingGame(carNames, 5);
 
         // 특정 자동차만 전진시키기 (테스트를 위해 직접 조작)
         List<Car> cars = game.getCars();
@@ -80,7 +78,7 @@ class RacingGameTest {
     void findMultipleWinners() {
         // given
         List<String> carNames = Arrays.asList("pobi", "woni", "jun");
-        RacingGame game = new RacingGame(carNames);
+        RacingGame game = new RacingGame(carNames, 5);
 
         // 두 자동차를 같은 거리로 전진시키기
         List<Car> cars = game.getCars();
@@ -102,7 +100,7 @@ class RacingGameTest {
     void findAllWinnersWhenTied() {
         // given
         List<String> carNames = Arrays.asList("pobi", "woni", "jun");
-        RacingGame game = new RacingGame(carNames);
+        RacingGame game = new RacingGame(carNames, 5);
 
         // 모든 자동차를 같은 거리로
         List<Car> cars = game.getCars();
@@ -123,7 +121,7 @@ class RacingGameTest {
     void playGameWithSingleCar() {
         // given
         List<String> carNames = List.of("pobi");
-        RacingGame game = new RacingGame(carNames);
+        RacingGame game = new RacingGame(carNames, 1);
 
         // when
         game.playRound();
@@ -140,7 +138,7 @@ class RacingGameTest {
         List<String> carNames = Arrays.asList("pobi", "woni", "jun");
 
         // when
-        RacingGame game = new RacingGame(carNames);
+        RacingGame game = new RacingGame(carNames, 5);
 
         // then
         List<Car> cars = game.getCars();
@@ -152,7 +150,7 @@ class RacingGameTest {
     void getCars() {
         // given
         List<String> carNames = Arrays.asList("pobi", "woni");
-        RacingGame game = new RacingGame(carNames);
+        RacingGame game = new RacingGame(carNames, 5);
 
         // when
         List<Car> cars = game.getCars();
